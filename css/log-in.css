@@ -3,21 +3,61 @@
     padding: 0;
 }
 footer{
-    background-color: gray;
-    position: relative;
-    bottom: 0px;
+    background-color: rgb(53, 50, 50);
+    color: white;
+    align-items: center;
 }
 .log-in-box{
-    position: relative;
     width: 40%;
+    height: 300px;
     margin-left: 25%;
+    position: relative;
     top:200px;
-    background-color: blue;
+    padding: 25px 25px 200px 25px;
+    background-color: rgb(230, 224, 224);
+}
+
+.log-in-box button{
+    position: relative;
+    top: 35px;
+    background-color: blueviolet;
+    font-weight: bold;
+    color: white;
+    padding: 5px 5px 5px 5px;
+    width: 300px;
+}
+
+.log-in-box a{
+    position: relative;
+    top: 40px;    
+}
+
+#password-label {
+    position: relative;
+    top: 15px;
+}
+#password-input {
+    position: relative;
+    top: 15px;
+    width: 300px;  
+}
+
+#user-input {
+    position: relative;
+    width: 300px;
+}
+
+
+.log-in-box button:hover{
+    background-color: rgb(106, 54, 155);
+
+    color: white;
+
 }
 
 .log-in-box input{
-    position: absolute;
-    border-radius: 30px;
+    border-style: solid;
+    padding: 5px 0px 5px 0px;
 }
 
 header{
