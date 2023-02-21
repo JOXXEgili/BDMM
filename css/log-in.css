@@ -5,15 +5,21 @@
 footer{
     background-color: rgb(53, 50, 50);
     color: white;
-    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    padding: 10px 0 20px;
+    font-size: 13px;
 }
 .log-in-box{
-    width: 40%;
-    height: 300px;
-    margin-left: 25%;
+
+    width: 30%;
+    height: 350px;
     position: relative;
-    top:200px;
-    padding: 25px 25px 200px 25px;
+    top: 150px;
+    left: 450px;
+    padding: 25px 25px 0 25px;
     background-color: rgb(230, 224, 224);
 }
 
@@ -29,7 +35,14 @@ footer{
 
 .log-in-box a{
     position: relative;
-    top: 40px;    
+    top: 60px;
+    color: rgb(57, 40, 202);
+    
+}
+
+
+.log-in-box a:hover{
+    color: blueviolet;
 }
 
 #password-label {
@@ -115,7 +128,7 @@ header, .center-nav{
 }
 main {
     width: 70%;
-    padding-bottom: 500px;
+    padding-bottom: 450px;
     margin-left: 15%;
     position: relative;
 }
