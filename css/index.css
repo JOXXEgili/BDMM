@@ -114,14 +114,14 @@ main img{
 
 .search-box {
     background-color: rgb(230, 224, 224);
-    width: 1000px;
-    height: 50px;
+    width: 50vw;
+    height: 5vh;
     border-style: solid;
     border-width: 1px;
     border-radius: 30px;
     display: flex;
     align-items: center;
-    padding: 0 200px;
+    padding: 0 e;
     margin-left: 15px;
 }
 
@@ -153,7 +153,7 @@ main img{
     width: 135px;
     position: absolute;
     right: 2%;
-    top: 15px
+    top: 20%;
 }
 .Log-in-button {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -166,7 +166,7 @@ main img{
 
     position: absolute;
     right: 10%;
-    top: 15px
+    top: 20%;
 }
 
 .right-nav button:hover{
