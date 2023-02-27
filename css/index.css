@@ -146,7 +146,7 @@ main img{
 .Register-button {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
-    background-color: black;
+    background-color: rgb(235, 81, 81);
     color: white;
     cursor: pointer;
     padding: 8px 17px 8px 17px;

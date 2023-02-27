@@ -6,31 +6,37 @@ footer{
     background-color: rgb(53, 50, 50);
     color: white;
     text-align: center;
-    position: relative;
+    position: absolute;
     width: 100%;
     bottom: 0;
-    padding: 10px 0 20px;
+    padding: 10px 0 0px;
     font-size: 13px;
 }
 .log-in-box{
 
-    width: 10cm;
-    height: 10cm;
+    width: 30%;
+    height: 300px;
     position: relative;
-    top: 3.5cm;
-    left: 35%;
-    padding: 25px 25px 0 25px;
+    /*top: 150px;
+    left: 450px;*/
+    padding: 20px;
     background-color: rgb(230, 224, 224);
+    border-radius: 10px; 
+    padding-top: 40px;
+    margin-top: 10vw;
+    margin-left: 25vw;
 }
 
 .log-in-box button{
     position: relative;
     top: 35px;
-    background-color: blueviolet;
+    /*background-color: blueviolet;*/
+    background-color: rgb(235, 81, 81);
     font-weight: bold;
     color: white;
     padding: 5px 5px 5px 5px;
-    width: 8cm;
+    width: 100%;
+    border-radius: 10px; 
 }
 
 .log-in-box a{
@@ -47,23 +53,25 @@ footer{
 
 #password-label {
     position: relative;
-    top: 15px;
 }
 #password-input {
     position: relative;
-    top: 15px;
-    width: 8cm;  
+    width: 100%; 
+    border-radius: 10px; 
+    padding-left: 5px;
 }
 
 #user-input {
     position: relative;
-    width: 8cm;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px; 
+    padding-left: 5px;
 }
 
 
 .log-in-box button:hover{
     background-color: rgb(106, 54, 155);
-
     color: white;
 
 }
@@ -128,7 +136,6 @@ header, .center-nav{
 }
 main {
     width: 70%;
-    padding-bottom: 450px;
     margin-left: 15%;
     position: relative;
 }
@@ -156,8 +163,8 @@ main img{
 
 .search-box {
     background-color: rgb(230, 224, 224);
-    width: 20cm;
-    height: 65%;
+    width: 100%;
+    height: 50px;
     border-style: solid;
     border-width: 1px;
     border-radius: 30px;
@@ -188,14 +195,16 @@ main img{
 .Register-button {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
-    background-color: black;
+    background-color: rgb(235, 81, 81);
     color: white;
     cursor: pointer;
     padding: 8px 17px 8px 17px;
     width: 135px;
     position: absolute;
-    right: 1cm;
-    top: 20%;
+    right: 2%;
+    top: 15px;
+    border-bottom-right-radius:10px;
+    border-top-right-radius: 10px;
 }
 .Log-in-button {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -207,8 +216,10 @@ main img{
     padding: 8px 17px 8px 17px;
 
     position: absolute;
-    right: 5cm;
-    top: 20%;
+    right: 10%;
+    top: 15px;
+    border-bottom-left-radius:10px;
+    border-top-left-radius: 10px;
 }
 
 .right-nav button:hover{
