@@ -194,8 +194,8 @@ main img{
     padding: 8px 17px 8px 17px;
     width: 135px;
     position: absolute;
-    right: 2%;
-    top: 15px
+    right: 1cm;
+    top: 20%;
 }
 .Log-in-button {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -207,8 +207,8 @@ main img{
     padding: 8px 17px 8px 17px;
 
     position: absolute;
-    right: 10%;
-    top: 15px
+    right: 5cm;
+    top: 20%;
 }
 
 .right-nav button:hover{
