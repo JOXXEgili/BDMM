@@ -152,7 +152,7 @@ main img{
     padding: 8px 17px 8px 17px;
     width: 135px;
     position: absolute;
-    right: 2%;
+    right: 2vw;
     top: 20%;
 }
 .Log-in-button {
@@ -165,7 +165,7 @@ main img{
     padding: 8px 17px 8px 17px;
 
     position: absolute;
-    right: 10%;
+    right: 10vw;
     top: 20%;
 }
 
