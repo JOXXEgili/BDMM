@@ -15,9 +15,9 @@ footer{
 .log-in-box{
 
     width: 30%;
-    height: 400px;
+    height: 15cm;
     position: relative;
-    padding: 25px 25px 0 25px;
+    padding: 25px 25px 25px 25px;
     background-color: rgb(230, 224, 224);
     padding-top: 40px;
     border-radius: 10px;
@@ -27,7 +27,7 @@ footer{
 
 .log-in-box button{
     position: relative;
-    top: 50px;
+    top: 75px;
     background-color: rgb(235, 81, 81);
     font-weight: bold;
     color: white;
@@ -37,7 +37,7 @@ footer{
 
 .log-in-box a{
     position: relative;
-    top: 60px;
+    top: 150px;
     color: rgb(57, 40, 202);
     
 }
@@ -53,23 +53,51 @@ footer{
 }
 #password-input {
     position: relative;
+    top: 60px;
+    width: 100%;
+    border-radius: 10px;
+    padding-left: 5px;
+}
+
+#photo-input {
+    position: relative;
+    top: 135px;
+    width: 100%;
+
+    padding-left: 5px;
+}
+
+
+#email-input {
+    position: relative;
+    top: 45px;
+    width: 100%;
+    border-radius: 10px;
+    padding-left: 5px;
+}
+
+#apellidoP-input {
+    position: relative;
+    top: 15px;
+    width: 100%;
+    border-radius: 10px;
+    padding-left: 5px;
+}
+#apellidoM-input {
+    position: relative;
     top: 30px;
     width: 100%;
     border-radius: 10px;
     padding-left: 5px;
 }
 
-#email-label {
+select {
     position: relative;
-    top: 15px;
-}
-#email-input {
-    position: relative;
-    top: 15px;
+    top: 120px;
     width: 100%;
-    border-radius: 10px;
-    padding-left: 5px;
 }
+
+
 
 #user-input {
     position: relative;
@@ -122,6 +150,7 @@ header, .center-nav{
     z-index: 1;
     align-items: center;
     border: 2px solid (0,0,0,10);
+    transition: all 0.25s ease;
 }
 .dropdown-categories-content button{
     padding: 5px;

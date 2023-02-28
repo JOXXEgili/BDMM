@@ -154,6 +154,7 @@ main img{
     position: absolute;
     right: 1cm;
     top: 20%;
+    border-radius: 10px;
 }
 .Log-in-button {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -167,6 +168,7 @@ main img{
     position: absolute;
     right: 5cm;
     top: 20%;
+    border-radius: 10px;
 }
 
 .right-nav button:hover{
