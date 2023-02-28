@@ -186,62 +186,6 @@ main img{
     position: relative;
     left: 10px;
 }
-
-.Cursos{
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    white-space: nowrap;
-}
-
-.CursosHeader{
-    margin: 50px 0px;
-    padding: 10px 20px;
-    font-family: 'Tilt Warp', cursive;
-    font-size: 30px;
-}
-
-.CursosContenedor{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    
-}
-
-.CursosCaja{
-    width: 500px;
-    box-shadow: 2px 2px 20px rgba(0,0,0,0.1);
-    background-color: white;
-    padding: 20px;
-    margin: 15px;
-    cursor: pointer;
-}
-
-.NombresCurso{
-    display: flex;
-    flex-direction: column;
-}
-
-.resenia{
-    color: #f9d71c;
-    
-}
-
-.cajaTop{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.progress{
-    width: 100%;
-    color: rgb(235, 81, 81);
-    width: 100px;
-}
-
 .perfil-image{
     width: 45px;
     height: 45px;
@@ -289,16 +233,64 @@ main img{
     behavior: smooth;
 }
 
-.filtros{
-    display: flex;
-}
 
-.apartado{
-    margin: 15px;
-}
-.AceptarFiltro{
-    padding: 5px;
-    background-color: rgb(34, 34, 34);
+
+.presentacion{
+    width: 100%;
+    background-color: rgb(54, 54, 54);
     color: white;
     font-family: 'Tilt Warp', cursive;
+    padding: 20px;
+}
+
+.basicInfo{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+.stars{
+    color: #f9d71c;
+    
+}
+.creacion{
+    margin-top: -15px;
+}
+
+.pago{
+    
+   
+    padding: 50px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.1);
+}
+.contenido{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+    vertical-align: middle;
+}
+.titulo{
+    font-family: 'Tilt Warp', cursive;
+}
+.pagar{
+    padding: 10px;
+    background-color: rgb(235, 81, 81);
+    margin-bottom: 20px;
+    font-family: 'Tilt Warp', cursive;
+
+}
+.extraInfo{
+    display: flex;
+    flex-direction: column;
+    color: grey;
+}
+
+.curso{
+    margin: 50px;
+    padding: 50px;
+    border: 2px solid rgb(208, 208, 208);
+}
+.nivel{
+    border: 1px solid rgb(208, 208, 208);
+    background-color: rgb(244, 244, 244);
+    padding: 10px;
 }
