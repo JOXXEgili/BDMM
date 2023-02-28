@@ -108,7 +108,7 @@ main img{
     margin-top: 20px;
     font-size: small;
     border-radius: 25px;
-    width: 100%;
+    width: 70%;
     height:  50%;
     margin-left: 15px;
     
@@ -232,7 +232,20 @@ main img{
     display: block;
     behavior: smooth;
 }
-
+.pickers{
+    margin-left: 20px;
+}
+.date{
+    border-radius: 100px;
+    padding: 5px;
+}
+.pickers img{
+    width: 30px;
+    cursor: pointer;
+}
+.center-nav img{
+    cursor: pointer;
+}
 
 
 

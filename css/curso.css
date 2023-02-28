@@ -30,6 +30,7 @@ header, .center-nav{
     position: relative;
     align-items: center;
     display: flex;
+    justify-content: space-between;
 }
 
 .dropdown-categories{
@@ -108,7 +109,7 @@ main img{
     margin-top: 20px;
     font-size: small;
     border-radius: 25px;
-    width: 100%;
+    width: 70%;
     height:  50%;
     margin-left: 15px;
     
@@ -293,4 +294,18 @@ main img{
     border: 1px solid rgb(208, 208, 208);
     background-color: rgb(244, 244, 244);
     padding: 10px;
+}
+.pickers{
+    margin-left: 20px;
+}
+.date{
+    border-radius: 100px;
+    padding: 5px;
+}
+.pickers img{
+    width: 30px;
+    cursor: pointer;
+}
+.center-nav img{
+    cursor: pointer;
 }
