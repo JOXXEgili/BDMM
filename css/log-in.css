@@ -15,7 +15,7 @@ footer{
 .log-in-box{
 
     width: 30%;
-    height: 300px;
+    height: 8cm;
     position: relative;
     /*top: 150px;
     left: 450px;*/
@@ -41,7 +41,7 @@ footer{
 
 .log-in-box a{
     position: relative;
-    top: 60px;
+    top: 40px;
     color: rgb(57, 40, 202);
     
 }
