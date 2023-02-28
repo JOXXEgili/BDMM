@@ -67,9 +67,7 @@ header, .center-nav{
     behavior: smooth;
 }
 
-.right-nav {
-    align-items: center;
-}
+
 main {
     width: 70%;
     height: 100%;
@@ -170,10 +168,16 @@ main img{
     right: 5cm;
     top: 20%;
 }
-
+.right-nav {
+    align-items: center;
+}
 .right-nav button:hover{
     background-color: rgb(194, 189, 189);
     color: rgb(76, 23, 97);
+}
+.right-nav:hover .dropdown-categories-content-profile {
+    display: block;
+    behavior: smooth;
 }
 
 .categories-button {
@@ -284,10 +288,7 @@ main img{
     list-style-type: none;
 }
 
-.right-nav:hover .dropdown-categories-content-profile {
-    display: block;
-    behavior: smooth;
-}
+
 
 .filtros{
     display: flex;
