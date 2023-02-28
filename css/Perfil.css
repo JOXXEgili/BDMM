@@ -21,8 +21,9 @@
     height: 45px;
     border-radius: 50%;
     overflow: hidden;
-    position: relative;
-    left: 20cm;
+    position: absolute;
+    right: 0;
+    top: 15px;
 }
 .perfil-image img{
     width: 100%;
