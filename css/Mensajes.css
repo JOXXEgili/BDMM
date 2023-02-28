@@ -120,11 +120,24 @@ main img{
 }
 .chat {
     position: absolute;
-    top: 5cm;
+    margin-top: -10%;
+    height: 70%;
     width: 75%;
     margin-left: 25%;
     
-    background-color: red;
+    background-color: rgb(230, 224, 224);
+}
+.chat textarea{
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    background-color: rgb(230, 224, 224);
+}
+.chat button{
+    position: absolute;
+    bottom: 0px;
+    padding: 2px 2px 2px 2px;
+
 }
 
 
