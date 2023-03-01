@@ -33,29 +33,49 @@
                     console.log("Hola")
                     document.getElementById("mssgName").style.visibility = 'visible';
                 }
+                else{
+                    document.getElementById("mssgName").style.visibility = 'hidden';
+                }
 
                 if(!reName.test(FLastName)){
                     document.getElementById("mssgAP").style.visibility = 'visible';
+                }
+                else{
+                    document.getElementById("mssgAP").style.visibility = 'hidden';
                 }
 
                 if(!reName.test(MLastName)){
                     document.getElementById("mssgAM").style.visibility = 'visible';
                 }
+                else{
+                    document.getElementById("mssgAM").style.visibility = 'hidden';
+                }
 
                 if(!logo.files.length != 0){
                     document.getElementById("mssgImg").style.visibility = 'visible';
                 }
-
+                else{
+                    document.getElementById("mssgImg").style.visibility = 'hidden';
+                }
                 if(!birth){
                     document.getElementById("mssgDate").style.visibility = 'visible';
+                }
+                else{
+                    document.getElementById("mssgDate").style.visibility = 'hidden';
                 }
 
                 if(!rePass.test(pass)){
                     document.getElementById("mssgPass").style.visibility = 'visible';
                 }
+                else{
+                    document.getElementById("mssgPass").style.visibility = 'hidden';
+                }
 
                 if(!reEmail.test(email)){
                     document.getElementById("mssgEmail").style.visibility = 'visible';
+                }
+                else{
+                    document.getElementById("mssgEmail").style.visibility = 'hidden';
                 }
             }
         </script>
