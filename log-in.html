@@ -9,19 +9,34 @@
         <title>Udemy</title>
 
         <script>
+            var contador = 0;
             function login(){
                 var user, pass;
                 user = document.getElementById("user-input").value;
                 pass = document.getElementById("password-input").value;
 
-                console.log(pass + "i");
-                console.log("hola");
+                var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-                if(user != "" && pass != ""){
-                    window.location ="kardex.html"
-                    console.log("entró")
+                if(user != "" && re.test(pass)){
+                    window.location ="Perfil.html"
                 }
-                    
+                else{
+                    contador++;
+                    console.log(contador)
+                }
+                
+                if(user === ""){
+                    document.getElementById("mssgUser").style.visibility = 'visible';
+                }
+                
+                if(!re.test(pass)){
+                    document.getElementById("mssgPass").style.visibility = 'visible';
+                }
+                if(contador === 3){
+                    alert('Su cuenta ha sido bloqueada')
+                    contador = 0;
+                }
+                
             }
         </script>
     </head>
@@ -72,14 +87,19 @@
                 <form class="log-in-form" method="post">
                     <!--<label id="user-label">Usuario</label> <br>-->
                     <input id="user-input" type="text" placeholder="Usuario" required> <br> 
+                    <span class="mssgUser" id="mssgUser">Error en Usuario</span>
                     <!--<label id="password-label">Contraseña</label> <br>-->
                     <input id="password-input" type="password" placeholder="Contraseña" required> <br>
+                    <span class="mssgPass" id="mssgPass">Contraseña incorrecta</span>
                     <input class="ingresar" type="button" value="Iniciar sesión" onclick="login()">
                     <!--<button type="submit" onclick="location.href='Kardex.html'">Iniciar sesión</button> <br>-->
                     <!--<a href="url">He olvidado mi Contraseña</a> <br>
                     <a href="register.html">Regístrate</a>-->
-                    <a>¿No tienes una cuenta?</a>
-                    <a href="register.html">Regístrate</a>
+                    <p>
+                        <a>¿No tienes una cuenta?</a>
+                        <a href="register.html">Regístrate</a>
+                    </p>
+
                 </form>
            </div>
             
