@@ -309,3 +309,69 @@ main img{
 .center-nav img{
     cursor: pointer;
 }
+
+.comentarios{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.CursosHeader{
+    margin: 50px 0px;
+    padding: 10px 20px;
+    font-family: 'Tilt Warp', cursive;
+    font-size: 30px;
+}
+
+.CursosContenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.CursosCaja{
+    width: 80%;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.1);
+    background-color: white;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+    word-break: break-all;
+}
+
+.NombresCurso{
+    display: flex;
+    flex-direction: column;
+}
+
+.resenia{
+    color: #f9d71c;
+    
+}
+
+.cajaTop{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info{
+    width: 100%;
+}
+
+.comentarios h1{
+    font-family: 'Tilt Warp', cursive;
+}
+
+.curso h1{
+    font-family: 'Tilt Warp', cursive;
+}
+
+.cajaTop .perfil-image{
+    margin-right: 10px;
+}
