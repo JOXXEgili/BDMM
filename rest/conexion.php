@@ -1,10 +1,5 @@
 <?php
 
-//$nombre = $_POST['nam'];
-//echo "hola " .$nombre;
-
-
-//function connect(){
 
   $servername = "localhost";
   $username = "root";
@@ -23,39 +18,17 @@
     echo "Connection failed: " . $e->getMessage();
   }
 
-//}
-
-
-/*
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "capaIntermediaMiercoles1";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  echo "hola";
-  die("Connection failed: " . $conn->connect_error);
-  echo "hola";
-}
-else
-{
-  echo "Connected successfully";
-}
-
-/*
-$sql = "INSERT INTO tabla1 (firstname, lastname, email)
-VALUES ('Juan', 'Perez', 'juanito@perez.com')";
-
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-¨*/
-
-//$conn->close();
+  // Database configuration  
+  /*$dbHost     = "localhost";  
+  $dbUsername = "root";  
+  $dbPassword = "";  
+  $dbName     = "prueba";  
+    
+  // Create database connection  
+  $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);  
+    
+  // Check connection  
+  if ($db->connect_error) {  
+      die("Connection failed: " . $db->connect_error);  
+  }*/
 ?>

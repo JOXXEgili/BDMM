@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,6 +11,8 @@
         
         <script>
             function register(){
+
+                var e = sessionStorage.getItem("email");
                 var name, MLastName, FLastName, email, pass, birth, logo, gender;
 
                 name = document.getElementById("user-input").value;
@@ -119,7 +122,24 @@
             </div>
             <div class="right-nav">
                 <div class="perfil-image">
-                    <img src="img/user icon.jpg" alt="">
+                    <?php
+
+                        $user = $_SESSION['email'];
+                        include('rest/conexion.php');
+                        if($_SESSION['type'] == 'Estudiante'){
+                            $query = "SELECT FotoP FROM estudiantes WHERE email = '$user'";
+                        }
+                        else{
+                            $query = "SELECT FotoP FROM profesores WHERE email = '$user'";
+                        }
+                        
+                        $resultado = $conn->query($query);
+                        while($data = $resultado->fetch(PDO::FETCH_ASSOC)){ 
+                    ?>
+                    <img src="data:image/jpg;base64, <?php echo base64_encode($data['FotoP']) ?>">
+                    <?php 
+                    }
+                    ?>
                 </div>
                 <div class="dropdown-categories-content-profile">
                     <il>

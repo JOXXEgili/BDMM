@@ -40,7 +40,7 @@
                 
             </div>
             <div class="right-nav">
-                <form action="log-in.html">
+                <form action="log-in.php">
                     <button class="Log-in-button">Iniciar sesión</button>
                 </form>
                 
@@ -78,7 +78,7 @@
                     <!--<button>Regístrate</button> <br>-->
                     <input class="registro" type="button" value="Registrarse" onclick="register()">
                     <a>¿Ya tienes una cuenta?</a> <br>
-                    <a href="log-in.html">Iniciar sesión</a>
+                    <a href="log-in.php">Iniciar sesión</a>
                 </form>
            </div>
             <h2></h2>
@@ -86,7 +86,7 @@
         <footer>
             <p>Enseña en Udemy</p>
             <p>©FCFM</p>
-            <p id="respuesta"></p>
+            <span id="respuesta" name="respuesta"></span>
         </footer>
     </body>
     <script>
@@ -108,24 +108,57 @@
 
             console.log(calculateAge(birth));
             console.log("holaS");
-            
-            var pic = $("#photo-input").prop('files')[0];   
 
 
             if(reName.test(name) && reName.test(FLastName) && reName.test(MLastName) && reEmail.test(email) && rePass.test(pass) && logo.files.length != 0 && birth && calculateAge(birth)){
                 //window.location ="Perfil.html"
 
                 //var logoBlob = convertBlob();
-
-                var rute = 'nam=' + name + '&flast=' + FLastName + '&mlast=' + MLastName + '&ema=' + email + '&pas=' + pass + '&bir=' + birth + '&log=' + pic + '&gen=' + gender;
+                /*
+                var rute = 'nam=' + name + '&flast=' + FLastName + '&mlast=' + MLastName + '&ema=' + email + '&pas=' + pass + '&bir=' + birth + '&log=' + pic + '&gen=' + gender + '$image=' + logo;
 
                 $.ajax({
-                    url: 'rest/apiRegister.php',
+                    //url: 'rest/apiRegister.php',
+                    url: 'phpPrueba.php',
                     type: 'POST',
                     data: rute,
                 })
                 .done(function(res){
+                    $('#respuesta').html(res);
+                    console.log(res);
+                    //location.href = 'http://localhost/BDMM/Perfil.php';
+                })
+                .fail(function(){
+                    console.log('error');
+                })
+                .always(function(){
+                    console.log('complete');
+                })*/
+
+                var file_data = $("#photo-input").prop("files")[0];   // Getting the properties of file from file field
+                var form_data = new FormData();                  // Creating object of FormData class
+                form_data.append("file", file_data);              // Appending parameter named file with properties of file_field to form_data
+                form_data.append("user_id", 123);                 // Adding extra parameters to form_data
+                form_data.append("mlast", MLastName);
+                form_data.append("ema", email);
+                form_data.append("pas", pass);
+                form_data.append("bir", birth);   
+                form_data.append("gen", gender);   
+                form_data.append("nam", name);   
+                form_data.append("flast", FLastName);
+
+                $.ajax({
+                    url: "rest/apiRegister.php",
+                    dataType: 'script',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: form_data,                         // Setting the data attribute of ajax with file_data
+                    type: 'post'
+                })
+                .done(function(res){
                     //$('#respuesta').html(res);
+                    //console.log(res);
                     location.href = 'http://localhost/BDMM/Perfil.php';
                 })
                 .fail(function(){

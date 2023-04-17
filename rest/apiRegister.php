@@ -1,5 +1,6 @@
 <?php
-
+session_set_cookie_params(0);
+session_start();
 include_once "conexion.php";
 require "testing.php";
 
@@ -56,7 +57,7 @@ if(($_SERVER['REQUEST_METHOD'] == "POST") == 1){
     $correo = $_POST['ema'];
     $contra = $_POST['pas'];
     $birth = $_POST['bir'];
-    $logo = $_POST['log'];
+    $logo = $_FILES["file"]["name"];
     $gender = $_POST['gen'];
     //$pic = base64_encode(file_get_contents($_FILES['pic']['tmp_name']));
 
@@ -74,6 +75,8 @@ if(($_SERVER['REQUEST_METHOD'] == "POST") == 1){
 
         $today = date("Y/m/d");
 
+        
+
         $input = $_POST;
         $sql = "CALL SP_GestionUsuarios('I', 'E', :P_email, :P_Nombre, :P_ApellidoP, :P_ApellidoM, :P_Contra, :P_Genero, :P_Birthday, :P_Registro, 1, null)";
         //$sql = "INSERT INTO tabla1(nombre, correo, contra) VALUES('$nombre', '$correo', '$contra')";
@@ -86,11 +89,47 @@ if(($_SERVER['REQUEST_METHOD'] == "POST") == 1){
         $stmt->bindParam(":P_Genero",$gender);
         $stmt->bindParam(":P_Birthday",$birth);
         $stmt->bindParam(":P_Registro",$today);
-        //$stmt->bindParam(":P_FotoP",$image);
+        //$stmt->bindParam(":P_FotoP",$img);
         //$stmt->execute();
 
         try{
             $stmt->execute();
+            
+            // If file upload form is submitted 
+            $status = $statusMsg = ''; 
+            if(isset($_POST["user_id"])){ 
+                $status = 'error'; 
+                if(!empty($_FILES["file"]["name"])) { 
+                    // Get file info 
+                    $fileName = basename($_FILES["file"]["name"]); 
+                    $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+                    
+                    // Allow certain file formats 
+                    $allowTypes = array('jpg','png','jpeg','gif'); 
+                    if(in_array($fileType, $allowTypes)){ 
+                        $image = $_FILES['file']['tmp_name']; 
+                        $imgContent = addslashes(file_get_contents($image)); 
+                    
+                        // Insert image content into database 
+                        $insert = $conn->query("UPDATE estudiantes SET FotoP = '$imgContent' WHERE email = '$correo'"); 
+                        
+                        if($insert){ 
+                            $status = 'success'; 
+                            $statusMsg = "File uploaded successfully."; 
+                        }else{ 
+                            $statusMsg = "File upload failed, please try again."; 
+                        }  
+                    }else{ 
+                        $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
+                    } 
+                }else{ 
+                    $statusMsg = 'Please select an image file to upload.'; 
+                } 
+            }
+
+
+            $_SESSION['email'] = $correo;
+
             print("registrado");
             //htttp_response_code(201);
             header('HTTP/1.1 200 the request was successful');
@@ -120,9 +159,5 @@ if(($_SERVER['REQUEST_METHOD'] == "POST") == 1){
 
 
 }
-
-
-
-
 
 ?>

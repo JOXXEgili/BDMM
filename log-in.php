@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/log-in.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <title>Udemy</title>
 
         <script>
@@ -14,9 +15,38 @@
                 var user, pass;
                 user = document.getElementById("user-input").value;
                 pass = document.getElementById("password-input").value;
+                sessionStorage.setItem("email2", 'hola');
+                //var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-                var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+                var form_data = new FormData();                  // Creating object of FormData class
+                form_data.append("user", user);              // Appending parameter named file with properties of file_field to form_data
+                form_data.append("pass", pass);                 // Adding extra parameters to form_data
 
+                $.ajax({
+                    url: "rest/apiLogin.php",
+                    dataType: 'script',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: form_data,                         // Setting the data attribute of ajax with file_data
+                    type: 'post',
+                    error: function(){
+                        alert('La contraseña y/o el correo no coinciden');
+                    }
+                })
+                .done(function(res){
+                    sessionStorage.setItem("email", res);
+                    location.href = 'http://localhost/BDMM/Perfil.php';
+                    //sessionStorage.setItem("email", res);
+                    alert(res);
+                })
+                .fail(function(){
+                    //console.log('error');
+                })
+                .always(function(){
+                    console.log('complete');
+                })
+                /*
                 if(user != "" && re.test(pass)){
                     window.location ="Perfil.html"
                 }
@@ -35,7 +65,7 @@
                 if(contador === 3){
                     alert('Su cuenta ha sido bloqueada')
                     contador = 0;
-                }
+                }*/
                 
             }
         </script>
@@ -71,11 +101,11 @@
                 
             </div>
             <div class="right-nav">
-                <form action="log-in.html">
+                <form action="log-in.php">
                     <button class="Log-in-button">Iniciar sesión</button>
                 </form>
                 
-                <form action="register.html">
+                <form action="register.php">
                     <button class="Register-button">Regístrate</button>
                 </form>
             </div>
@@ -97,7 +127,7 @@
                     <a href="register.html">Regístrate</a>-->
                     <p>
                         <a>¿No tienes una cuenta?</a>
-                        <a href="register.html">Regístrate</a>
+                        <a href="register.php">Regístrate</a>
                     </p>
 
                 </form>
