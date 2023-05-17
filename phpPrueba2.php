@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,22 +13,26 @@
             <th>id</th>
             <th>imagen</th>
         </tr>
-            <?php 
-                include('rest/conexion.php');
-                $query = "SELECT email, FotoP FROM estudiantes";
-                $resultado = $conn->query($query);
-                while($data = $resultado->fetch(PDO::FETCH_ASSOC)){
-                ?>
-                <tr>
-                    <td><?php echo $data['email'] ?></td>
-                    <td><img height="50px" src="data:image/jpg;base64, <?php echo base64_encode($data['FotoP']) ?>"></td>
-                </tr>
-                <?php 
-                }
-                /*$resultado = $conn ->query($query);
-                $result = mysqli_fetch_array($resultado);
-                echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['img'] ).'"/>';*/
+        <?php
+
+            $user = $_SESSION['email'];
+            include('rest/conexion.php');
+            if($_SESSION['type'] == 'Estudiante'){
+                $query = "SELECT FotoP FROM estudiantes WHERE email = '$user'";
+            }
+            else{
+                //$query = "SELECT FotoP FROM profesores WHERE email = '$user'"
+                $query = "SELECT pdf FROM contenido_cursos WHERE ID_contenido = 1";
+            }
+            $query = "SELECT pdf FROM contenido_cursos WHERE ID_contenido = 1";
+            $resultado = $conn->query($query);
+            while($data = $resultado->fetch(PDO::FETCH_ASSOC)){ 
             ?>
+            <!--img src="data:image/jpg;base64, <?php //echo base64_encode($data['Miniatura']) ?>"-->
+            <a download="PDF Title" href="data:application/pdf;base64, <?php echo base64_encode($data['pdf']) ?>">Download PDF document</a>
+            <?php 
+            }
+        ?>
     </table>
 </body>
 </html>

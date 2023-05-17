@@ -242,6 +242,7 @@ main img{
     color: white;
     font-family: 'Tilt Warp', cursive;
     padding: 20px;
+    display: flex;
 }
 
 .basicInfo{
@@ -273,11 +274,13 @@ main img{
     font-family: 'Tilt Warp', cursive;
 }
 .pagar{
-    padding: 10px;
+    padding: 5px;
     background-color: rgb(235, 81, 81);
     margin-bottom: 20px;
     font-family: 'Tilt Warp', cursive;
-
+    color: white;
+    width: 200px;
+    height: 40px;
 }
 .extraInfo{
     display: flex;
@@ -316,7 +319,7 @@ main img{
     align-items: center;
     flex-direction: column;
     width: 100%;
-
+    margin-bottom: 100px;
 }
 
 .CursosHeader{
@@ -374,4 +377,17 @@ main img{
 
 .cajaTop .perfil-image{
     margin-right: 10px;
+}
+
+.pagarNvl{
+    height: 35px;
+    margin-top: 10px;
+    padding: 5px;
+    color: white;
+    background-color: rgb(235, 81, 81);
+    font-family: 'Tilt Warp', cursive;
+}
+
+.allInfo{
+    margin-left: 20px;
 }

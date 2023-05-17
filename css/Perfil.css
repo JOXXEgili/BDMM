@@ -91,6 +91,9 @@ footer{
     color: blueviolet;
 }
 
+#password-label {
+
+}
 #password-input {
 
     width: 100%;
@@ -339,4 +342,15 @@ main img{
 .mssgName, .mssgAP, .mssgAM, .mssgImg, .mssgDate, .mssgPass, .mssgEmail{
     color: rgb(208, 71, 71);
     visibility: hidden;
+}
+.pickers{
+    margin-left: 20px;
+}
+.date{
+    border-radius: 100px;
+    padding: 5px;
+}
+.pickers img{
+    width: 30px;
+    cursor: pointer;
 }

@@ -4,7 +4,7 @@
   $servername = "localhost";
   $username = "root";
   $password = "";
-  $dbname = "bdm";
+  $dbname = "udemy";
 
 
   try {

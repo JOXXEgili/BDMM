@@ -19,7 +19,7 @@ footer{
 }
 .log-in-box{
     width: 30%;
-    height: 18cm;
+    height: 22cm;
     position: relative;
     padding: 25px 25px 25px 25px;
     background-color: rgb(230, 224, 224);
@@ -40,8 +40,8 @@ footer{
 }
 
 .log-in-box a{
+    top: 20px;
     position: relative;
-    top: 135px;
     color: rgb(57, 40, 202);
     
 }
@@ -93,7 +93,7 @@ select {
 }
 #genre-label {
     font-weight: bold;
-
+    text-align: left;
 }
 
 #user-input {
@@ -282,5 +282,16 @@ main img{
 .mssgName, .mssgAP, .mssgAM, .mssgImg, .mssgDate, .mssgPass, .mssgEmail{
     color: rgb(208, 71, 71);
     visibility: hidden;
+}
+.pickers{
+    margin-left: 20px;
+}
+.date{
+    border-radius: 100px;
+    padding: 5px;
+}
+.pickers img{
+    width: 30px;
+    cursor: pointer;
 }
 

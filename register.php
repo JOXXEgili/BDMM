@@ -12,30 +12,44 @@
     <body>
         <header>
             <div class="left-nav">
-                <a href="index.html"><img id="logo" src="img/udemy-logo.png"></a>
+                <a href="index.php"><img id="logo" src="img/udemy-logo.png"></a>
                     
                 <div class="dropdown-categories">
                     <button class="categories-button">Categorías</button>
                     <div class="dropdown-categories-content">
                         <il>
-                            <li><button>Programación web</button></li>
-                            <li><button>Marketing</button></li>
-                            <li><button>Diseño</button></li>
-                        </il>
-                    </div> 
+                        <?php
+                        include('rest/conexion.php');
 
-                </div>
-                
+                        $query = "SELECT Nombre FROM categorias";
+                        $resultado = $conn->query($query);
+                        while($data = $resultado->fetch(PDO::FETCH_ASSOC)){
+                            echo '<li><button id="' . $data['Nombre'] . '"onclick="searchCat()">' . $data['Nombre'] . '</button></li>';
+                        }
+                    ?>
+                        <!--li><button>Programación web</button></li>
+                        <li><button>Marketing</button></li>
+                        <li><button>Diseño</button></li-->
+                    </il>
+                </div> 
+
             </div>
             
-            <div class="center-nav">
-                <div class="search-box">
-                    <form>
-                        
-                         <input type="text" placeholder="Buscar cualquier cosa">
-                         <img src="img/lupa.png">
-                    </form>
-                </div>
+        </div>
+        
+        <div class="center-nav">
+            <div class="search-box">
+                <form>
+                     <input id='buscar' type="text" placeholder="Buscar cualquier cosa">
+                     <img src="img/lupa.png" onclick="search()">
+                </form>
+            </div>
+            
+            <div class="pickers">
+                <input class='date' id='date1' type="date" data-date-format="YYYY-MM-DD"/>
+                <input class='date' id='date2' type="date" data-date-format="YYYY-MM-DD"/>
+                <img src="img/lupa.png" onclick="searchDate()">
+            </div>
                 
                 
             </div>
@@ -62,6 +76,7 @@
                     <span class="mssgEmail" id="mssgEmail">Formato incorrecto de email</span>
                     <input id="password-input" type="password" placeholder="Contraseña"> <br>
                     <span class="mssgPass" id="mssgPass">Formato incorrecto de contraseña</span>
+                    <br>
                     <label id="genre-label">Género</label> <br>
                     <select id="genre-input">
                         <option>H</option>
@@ -74,6 +89,12 @@
                     <label id="photo-label">Foto de perfil</label> <br>    
                     <input id="photo-input" type="file" name="images" ref="file">
                     <span class="mssgImg" id="mssgImg">Seleccione una imágen</span>
+                    <br>
+                    <label id="genre-label">Tipo de usuario</label> <br>
+                    <select id="type-input">
+                        <option>Estudiante</option>
+                        <option>Profesor</option>
+                    </select> 
                     
                     <!--<button>Regístrate</button> <br>-->
                     <input class="registro" type="button" value="Registrarse" onclick="register()">
@@ -101,6 +122,7 @@
             birth = document.getElementById("date-input").value;
             logo = document.getElementById("photo-input");
             gender = document.getElementById("genre-input").value;
+            type = document.getElementById("type-input").value;
 
             var rePass = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
             var reEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -146,6 +168,7 @@
                 form_data.append("gen", gender);   
                 form_data.append("nam", name);   
                 form_data.append("flast", FLastName);
+                form_data.append("type", type);
 
                 $.ajax({
                     url: "rest/apiRegister.php",
@@ -154,12 +177,19 @@
                     contentType: false,
                     processData: false,
                     data: form_data,                         // Setting the data attribute of ajax with file_data
-                    type: 'post'
+                    type: 'post',
+                    error: function(xhr, status, error) {
+                        // there was an error
+                        alert('Este ususario ya está registrado');
+                    }
                 })
                 .done(function(res){
                     //$('#respuesta').html(res);
                     //console.log(res);
-                    location.href = 'http://localhost/BDMM/Perfil.php';
+                    alert('Usuario registrado exitosamente')
+                    //alert(res);
+                    location.href = 'http://localhost/BDMM/log-in.php';
+                        
                 })
                 .fail(function(){
                     console.log('error');
@@ -247,5 +277,117 @@
             var y = 2;
             var z = x + y;
         }
+
+        function searchCat(){
+
+
+document.addEventListener('click', (e) =>
+{
+// Retrieve id from clicked element
+    elementId = e.target.id;
+    // If element has id
+    if (elementId !== '') {
+        var form_data = new FormData();                  // Creating object of FormData class
+        form_data.append("type", 'categoria');
+        form_data.append("txt", elementId);
+
+        $.ajax({
+            url: "rest/buscar.php",
+            dataType: 'script',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,                         // Setting the data attribute of ajax with file_data
+            type: 'post'
+        })
+        .done(function(res){
+            location.href = 'http://localhost/BDMM/busqueda.php';
+        })
+        .fail(function(e){
+            console.log(e);
+        })
+        .always(function(){
+            console.log('complete');
+        }) 
+    }
+
+})
+}
+
+function searchDate(){
+
+const date1 = document.getElementById('date1');
+const date2 = document.getElementById('date2');
+
+if(!date1.value && !!date2.value){
+    alert('Si se desea filtrar por fecha se debe de seleccionar una fecha para cada campo y el primer campo debe ser menor al segundo');
+}
+if(!!date1.value && !date2.value){
+    alert('Si se desea filtrar por fecha se debe de seleccionar una fecha para cada campo y el primer campo debe ser menor al segundo');
+}
+if(!date1.value && !date2.value){
+    alert('Si se desea filtrar por fecha se debe de seleccionar una fecha para cada campo y el primer campo debe ser menor al segundo');
+}
+if(date1.value < date2.value){
+
+    var form_data = new FormData();                  // Creating object of FormData class
+    form_data.append("type", 'fecha');
+    form_data.append("txt", date1.value);
+    form_data.append("txt2", date2.value);
+
+    $.ajax({
+        url: "rest/buscar.php",
+        dataType: 'script',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,                         // Setting the data attribute of ajax with file_data
+        type: 'post'
+    })
+    .done(function(res){
+        location.href = 'http://localhost/BDMM/busqueda.php';
+    })
+    .fail(function(e){
+        console.log(e);
+    })
+    .always(function(){
+        console.log('complete');
+    }) 
+}
+if(date1.value > date2.value){
+    alert('La primer fecha debe ser anterior a la segunda fecha');
+}
+}
+
+function search(){
+        txt = document.getElementById("buscar").value;
+            
+        if(txt != '' && txt != null){
+            var form_data = new FormData();                  // Creating object of FormData class
+            form_data.append("txt", txt);            // Appending parameter named file with properties of file_field to form_data
+            form_data.append("type", 'text');  
+            //form_data.append("msg", msg);
+            //form_data.append("remitente", 'misa2_09raya2@hotmail.com');
+
+            $.ajax({
+                url: "rest/buscar.php",
+                dataType: 'script',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,                         // Setting the data attribute of ajax with file_data
+                type: 'post'
+            })
+            .done(function(res){
+                location.href = 'http://localhost/BDMM/busqueda.php';
+            })
+            .fail(function(e){
+                console.log(e);
+            })
+            .always(function(){
+                console.log('complete');
+            }) 
+        }
+    }
     </script>
 </html>

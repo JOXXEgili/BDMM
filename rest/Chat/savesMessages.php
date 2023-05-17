@@ -1,12 +1,12 @@
 <?php
-session_set_cookie_params(0);
+//session_set_cookie_params(0);
 session_start();
 include_once "../conexion.php";
 require "../testing.php";
 
-$response = array();
+//$response = array();
 
-$_SESSION['email'] = 'misa2_09raya2@hotmail.com';
+//$_SESSION['email'] = 'misa2_09raya2@hotmail.com';
 
 $user = $_SESSION['email'];
 
@@ -29,7 +29,7 @@ if($_POST['action'] == '1'){
 
     }
 
-    $sql = "SELECT ID_chat, Estudiante, Profesor, Contenido FROM mensaje WHERE ID_chat = $idChat ORDER BY ID_chat ASC";
+    $sql = "SELECT ID_chat, Estudiante, Profesor, Contenido, Fecha FROM mensaje WHERE ID_chat = $idChat ORDER BY ID_chat ASC";
     $result = $conn->query($sql);
     while($data = $result->fetch(PDO::FETCH_ASSOC)){
 
@@ -37,19 +37,45 @@ if($_POST['action'] == '1'){
 
         if($data['Estudiante'] == null){
             if($_SESSION['type'] == 'Profesor'){
-                echo "<h5 id = 'right'>" . $msg ."</h5>";
+                //echo "<h5 id = 'right'>" . $msg ."</h5>";
+                echo '<li class="clearfix">
+                <div class="message-data align-right">
+                  <span class="message-data-time" >' . $data['Fecha'] . '</span> &nbsp; &nbsp;
+                  <span class="message-data-name" ></span> <i class="fa fa-circle me"></i>
+                </div>
+                <div class="message other-message float-right">' . $data['Contenido'] . '</div>
+              </li>';
             }
             else{
-                echo "<h5 id = 'left'>" . $msg ."</h5>";
+                //echo "<h5 id = 'left'>" . $msg ."</h5>";
+                echo '<li>
+                <div class="message-data">
+                  <span class="message-data-name"><i class="fa fa-circle online"></i></span>
+                  <span class="message-data-time">' . $data['Fecha'] . '</span>
+                </div>
+                <div class="message my-message">' . $data['Contenido'] . '</div></li>';
             }
             
         }
         else{
             if($_SESSION['type'] == 'Profesor'){
-                echo "<h5 id = 'left'>" . $msg ."</h5>";
+                //echo "<h5 id = 'left'>" . $msg ."</h5>";
+                echo '<li>
+                <div class="message-data">
+                  <span class="message-data-name"><i class="fa fa-circle online"></i></span>
+                  <span class="message-data-time">' . $data['Fecha'] . '</span>
+                </div>
+                <div class="message my-message">' . $data['Contenido'] . '</div></li>';
             }
             else{
-                echo "<h5 id = 'right'>" . $msg ."</h5>";
+                //echo "<h5 id = 'right'>" . $msg ."</h5>";
+                echo '<li class="clearfix">
+                <div class="message-data align-right">
+                  <span class="message-data-time" >' . $data['Fecha'] . '</span> &nbsp; &nbsp;
+                  <span class="message-data-name" ></span> <i class="fa fa-circle me"></i>
+                </div>
+                <div class="message other-message float-right">' . $data['Contenido'] . '</div>
+              </li>';
             }
         }
     }
@@ -105,10 +131,10 @@ else if($_POST['action'] == '2'){//para enviar mensajes
 
         $date = date("Y/m/d");
 
-        $sql = "INSERT INTO mensaje(Contenido, Fecha, ID_chat, Estudiante) VALUES(:P_contenido, :P_fecha, :P_chat, :P_estudiante)";
+        $sql = "INSERT INTO mensaje(Contenido, Fecha, ID_chat, Estudiante) VALUES(:P_contenido, NOW(), :P_chat, :P_estudiante)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":P_contenido",$msg);
-        $stmt->bindParam(":P_fecha", $date);
+        //$stmt->bindParam(":P_fecha", $date);
         $stmt->bindParam(":P_chat", $chat);
         $stmt->bindParam(":P_estudiante", $user);
 
@@ -123,10 +149,10 @@ else if($_POST['action'] == '2'){//para enviar mensajes
             $chat = $data['ID_chat'];
         }
 
-        $sql = "INSERT INTO mensaje(Contenido, Fecha, ID_chat, Profesor) VALUES(:P_contenido, :P_fecha, :P_chat, :P_profesor)";
+        $sql = "INSERT INTO mensaje(Contenido, Fecha, ID_chat, Profesor) VALUES(:P_contenido, NOW(), :P_chat, :P_profesor)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":P_contenido",$msg);
-        $stmt->bindParam(":P_fecha", date("Y/m/d"));
+        //$stmt->bindParam(":P_fecha", date("Y/m/d"));
         $stmt->bindParam(":P_chat", $chat);
         $stmt->bindParam(":P_profesor", $user);
 
@@ -136,7 +162,9 @@ else if($_POST['action'] == '2'){//para enviar mensajes
 else if($_POST['action'] == '3'){ // para cargar los inbox
       //$sql = "SELECT * FROM inbox WHERE Estudiante = $user";
       //$remitente = $_POST['remitente'];
+      //$_SESSION['type']='Estudiante';
 
+      //echo $_SESSION['type'] . $user . '/';
       if( $_SESSION['type'] == 'Estudiante'){
         $sql = "SELECT count(ID_CHAT) FROM inbox WHERE Estudiante = '$user'";
       }
@@ -146,15 +174,18 @@ else if($_POST['action'] == '3'){ // para cargar los inbox
       $result = $conn->query($sql);
   
       $num = $result->fetchColumn();
-  
+      //echo $num;
+      /*
       if($num == 0){       
              //verificamos si nuestro usuario es profesor o estudiante
           $_SESSION['type'] = 'Estudiante';
+          
       }
       else{
 
           $_SESSION['type'] = 'Profesor';
-      }
+          echo 'aki pasa ';
+      }*/
       
       $logo = '';
       $name = '';
@@ -192,10 +223,22 @@ else if($_POST['action'] == '3'){ // para cargar los inbox
                 $nombre = $data['Nombre'] . ' ' . $data['ApellidoP'] . ' ' . $data['ApellidoM'];
             }
 
-              echo "<div id ='$emailRemitente' class='inbox-container' onclick='getDataInbox(event, this.id)'><img src='$b64'><h3>$nombre</h3></div>";
+              //echo "<div id ='$emailRemitente' class='inbox-container' onclick='getDataInbox(event, this.id)'><img src='$b64'><h3>$nombre</h3></div>";
+              echo '<li class="clearfix" id ="' . $emailRemitente . '" onclick="getDataInbox(event, this.id)">
+              <div class="acomodar">
+              <img id = "avatar" src="' . $b64 . '" alt="avatar" />
+              <div class="about">
+                <div class="name">' . $nombre . '</div>
+                <div class="status">
+                  <i class="fa fa-circle online"></i> Chatear
+                </div>
+                </div>
+              </div>
+            </li>';
           }
       }
       else{
+
           $query = "SELECT Profesor FROM inbox WHERE $type = '$user'";
           $resultado = $conn->query($query);
           while($data = $resultado->fetch(PDO::FETCH_ASSOC)){
@@ -224,11 +267,44 @@ else if($_POST['action'] == '3'){ // para cargar los inbox
                 $nombre = $data['Nombre'] . ' ' . $data['ApellidoP'] . ' ' . $data['ApellidoM'];
             }
 
-            /*$response['message'] =*/echo "<div id ='$emailRemitente' class='inbox-container' onclick='getDataInbox(event, this.id)'><img src='$b64'><h3>$nombre</h3></div>";
+            /*$response['message'] =*///echo "<div id ='$emailRemitente' class='inbox-container' onclick='getDataInbox(event, this.id)'><img src='$b64'><h3>$nombre</h3></div>";
+            echo '<li class="clearfix" id ="' . $emailRemitente . '" onclick="getDataInbox(event, this.id)">
+            <div class="acomodar">
+              <img id = "avatar" src="' . $b64 . '" alt="avatar" />
+              <div class="about">
+                <div class="name">' . $nombre . '</div>
+                <div class="status">
+                  <i class="fa fa-circle online"></i> Chatear
+                </div>
+                </div>
+              </div>
+            </li>';
           }
       }
       //echo json_encode($response);
 }
+elseif ($_POST['action'] == '4') {//PARA CREAR UN INBOX AL BUSCAR UN USARIO
+    if($_SESSION['type'] == 'Profesor'){
+
+    }
+    else{
+
+        $res = 'No encontrado';
+        $profe = $_POST['remitente'];
+        $query = "SELECT Cliente, Autor FROM mensajes_profesor_alumno WHERE Cliente = '$user' AND Autor LIKE '%$profe%'";
+        $result = $conn->query($query);
+        while($data = $result->fetch(PDO::FETCH_ASSOC)){
+
+            $profesor = $data['Autor'];
+            $res = 'encontrado';
+
+            $insert = $conn->query("INSERT INTO inbox(Estudiante, Profesor) VALUES('$user', '$profesor')"); 
+        }
+
+        echo $res;
+    }
+}
+
 
 
 function loadInbox(){

@@ -59,6 +59,7 @@ if(($_SERVER['REQUEST_METHOD'] == "POST") == 1){
     $birth = $_POST['bir'];
     $logo = $_FILES["file"]["name"];
     $gender = $_POST['gen'];
+    $type = $_POST['type'];
     //$pic = base64_encode(file_get_contents($_FILES['pic']['tmp_name']));
 
     //$logo = $_FILES['pic'];
@@ -75,88 +76,111 @@ if(($_SERVER['REQUEST_METHOD'] == "POST") == 1){
 
         $today = date("Y/m/d");
 
-        
+        $t = '';
+        if($type == 'Estudiante'){
+            $t = 'E';
+            $sql = "SELECT count(email) FROM estudiantes WHERE email = '$correo'";
+            $result = $conn->query($sql);
+    
+            $num = $result->fetchColumn();
+        }
+        else{
+            $t = 'P';
+            echo 'aki pasa';
+            $sql = "SELECT count(email) FROM profesores WHERE email = '$correo'";
+            $result = $conn->query($sql);
+    
+            $num = $result->fetchColumn();
+        }
 
-        $input = $_POST;
-        $sql = "CALL SP_GestionUsuarios('I', 'E', :P_email, :P_Nombre, :P_ApellidoP, :P_ApellidoM, :P_Contra, :P_Genero, :P_Birthday, :P_Registro, 1, null)";
-        //$sql = "INSERT INTO tabla1(nombre, correo, contra) VALUES('$nombre', '$correo', '$contra')";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":P_email",$correo);
-        $stmt->bindParam(":P_Nombre",$nombre);
-        $stmt->bindParam(":P_ApellidoP",$apellidoP);
-        $stmt->bindParam(":P_ApellidoM",$apellidoM);
-        $stmt->bindParam(":P_Contra",$contra);
-        $stmt->bindParam(":P_Genero",$gender);
-        $stmt->bindParam(":P_Birthday",$birth);
-        $stmt->bindParam(":P_Registro",$today);
-        //$stmt->bindParam(":P_FotoP",$img);
-        //$stmt->execute();
-
-        try{
-            $stmt->execute();
-            
-            // If file upload form is submitted 
-            $status = $statusMsg = ''; 
-            if(isset($_POST["user_id"])){ 
-                $status = 'error'; 
-                if(!empty($_FILES["file"]["name"])) { 
-                    // Get file info 
-                    $fileName = basename($_FILES["file"]["name"]); 
-                    $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
-                    
-                    // Allow certain file formats 
-                    $allowTypes = array('jpg','png','jpeg','gif'); 
-                    if(in_array($fileType, $allowTypes)){ 
-                        $image = $_FILES['file']['tmp_name']; 
-                        $imgContent = addslashes(file_get_contents($image)); 
-                    
-                        // Insert image content into database 
-                        $insert = $conn->query("UPDATE estudiantes SET FotoP = '$imgContent' WHERE email = '$correo'"); 
+        if($num == 0){
+            $input = $_POST;
+            $sql = "CALL SP_GestionUsuarios('I', :P_t, :P_email, :P_Nombre, :P_ApellidoP, :P_ApellidoM, :P_Contra, :P_Genero, :P_Birthday, :P_Registro, 1, null)";
+            //$sql = "INSERT INTO tabla1(nombre, correo, contra) VALUES('$nombre', '$correo', '$contra')";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(":P_t",$t);
+            $stmt->bindParam(":P_email",$correo);
+            $stmt->bindParam(":P_Nombre",$nombre);
+            $stmt->bindParam(":P_ApellidoP",$apellidoP);
+            $stmt->bindParam(":P_ApellidoM",$apellidoM);
+            $stmt->bindParam(":P_Contra",$contra);
+            $stmt->bindParam(":P_Genero",$gender);
+            $stmt->bindParam(":P_Birthday",$birth);
+            $stmt->bindParam(":P_Registro",$today);
+            //$stmt->bindParam(":P_FotoP",$img);
+            //$stmt->execute();
+    
+            try{
+    
+                $stmt->execute();
+                
+                // If file upload form is submitted 
+                $status = $statusMsg = ''; 
+                if(isset($_POST["user_id"])){ 
+                    $status = 'error'; 
+                    if(!empty($_FILES["file"]["name"])) { 
+                        // Get file info 
+                        $fileName = basename($_FILES["file"]["name"]); 
+                        $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
                         
-                        if($insert){ 
-                            $status = 'success'; 
-                            $statusMsg = "File uploaded successfully."; 
+                        // Allow certain file formats 
+                        $allowTypes = array('jpg','png','jpeg','gif'); 
+                        if(in_array($fileType, $allowTypes)){ 
+                            $image = $_FILES['file']['tmp_name']; 
+                            $imgContent = addslashes(file_get_contents($image)); 
+                        
+                            // Insert image content into database
+                            if($type == 'Estudiante'){
+                                $insert = $conn->query("UPDATE estudiantes SET FotoP = '$imgContent' WHERE email = '$correo'"); 
+                            }
+                            else{
+                                $insert = $conn->query("UPDATE profesores SET FotoP = '$imgContent' WHERE email = '$correo'"); 
+                            }
+                            
+                            if($insert){ 
+                                $status = 'success'; 
+                                $statusMsg = "File uploaded successfully."; 
+                            }else{ 
+                                $statusMsg = "File upload failed, please try again."; 
+                            }  
                         }else{ 
-                            $statusMsg = "File upload failed, please try again."; 
-                        }  
+                            $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
+                        } 
                     }else{ 
-                        $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
+                        $statusMsg = 'Please select an image file to upload.'; 
                     } 
-                }else{ 
-                    $statusMsg = 'Please select an image file to upload.'; 
-                } 
+                }
+    
+    
+                $_SESSION['email'] = $correo;
+    
+                print("registrado");
+                //htttp_response_code(201);
+                header('HTTP/1.1 200 the request was successful');
+                //$response['error'] = false;
+                //$response['message'] = 'Usuario registrado exitosamente';
+                $enter = true;
+    
+                echo 'succes';
+                
             }
-
-
-            $_SESSION['email'] = $correo;
-
-            print("registrado");
-            //htttp_response_code(201);
-            header('HTTP/1.1 200 the request was successful');
-            //$response['error'] = false;
-            //$response['message'] = 'Usuario registrado exitosamente';
-            $enter = true;
-
-
-            
+            catch (Exception $e){
+                header('HTTP/1.1 400 the request was not successful');
+                $response['error'] = true;
+                $response['message'] = $e->getMessage();
+            }
         }
-        catch (Exception $e){
-            header('HTTP/1.1 400 the request was not successful');
-            $response['error'] = true;
-            $response['message'] = $e->getMessage();
+        else{
+            http_response_code(400);
+            //echo 'error';
         }
+
     }
     else{
         $response['error'] = true;
         $response['message'] = "Asegurese de ingresar la info en el formato correcto";
     }
     //echo json_encode($response);
-
-    if($enter){
-        header('location: http://localhost/BDMM/phpPrueba.php', true, 307);
-        die();
-    }
-
 
 }
 

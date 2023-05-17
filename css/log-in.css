@@ -45,6 +45,17 @@ footer{
     color: rgb(57, 40, 202);
     
 }
+.pickers{
+    margin-left: 20px;
+}
+.date{
+    border-radius: 100px;
+    padding: 5px;
+}
+.pickers img{
+    width: 30px;
+    cursor: pointer;
+}
 
 
 .log-in-box a:hover{

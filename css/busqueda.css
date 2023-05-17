@@ -273,12 +273,14 @@ main img{
 }
 
 .CursosCaja{
+    
     width: 80%;
     box-shadow: 2px 2px 20px rgba(0,0,0,0.1);
     background-color: white;
     padding: 20px;
     margin: 15px;
     cursor: pointer;
+    display: flex;
 }
 
 .NombresCurso{
@@ -296,3 +298,18 @@ main img{
     justify-content: space-between;
     align-items: center;
 }
+
+.CursosContenedor .CursoImg{
+    
+}
+
+.CursoImg img{
+    width: 100px;
+    margin-right: 20px;
+}
+
+.cursos h1{
+    font-family: 'Tilt Warp', cursive;
+    text-align: center;
+}
+

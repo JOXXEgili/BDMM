@@ -1,0 +1,367 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-categories-content-profile{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    padding: 12px 16px;
+    z-index: 1;
+    align-items: center;
+    border: 2px solid (0,0,0,10);
+    right:0
+    
+}
+.perfil-image{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+.perfil-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: center;
+}
+
+.dropdown-categories-content-profile button{
+    padding: 5px;
+    border: none;
+    background-color: transparent;
+
+}
+
+.dropdown-categories-content-profile button:hover{
+    color: rgb(184, 23, 184);
+}
+.dropdown-categories-content-profile li{
+    list-style-type: none;
+}
+
+
+.log-in-box button:hover{
+    background-color: rgb(106, 54, 155);
+
+    color: white;
+
+}
+
+.log-in-box input{
+    border-style: solid;
+    padding: 5px 0px 5px 0px;
+}
+
+header{
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.3);
+}
+
+header, .center-nav{
+    height: 75px;
+    background-color: rgb(230, 224, 224);
+    border: 1px;
+    border-color: black;
+    position: relative;
+    align-items: center;
+    display: flex;
+
+}
+
+.dropdown-categories{
+    position: relative;
+    display: inline-block;
+    
+}
+
+.dropdown-categories-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    padding: 12px 16px;
+    z-index: 1;
+    align-items: center;
+    border: 2px solid (0,0,0,10);
+    transition: all 0.25s ease;
+}
+.dropdown-categories-content button{
+    padding: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+.dropdown-categories-content button:hover{
+    color: rgb(184, 23, 184);
+}
+.dropdown-categories-content li{
+    list-style-type: none;
+}
+
+.dropdown-categories:hover .dropdown-categories-content {
+    display: block;
+    behavior: smooth;
+}
+
+.right-nav {
+    align-items: center;
+    float: right;
+
+}
+.right-nav button:hover{
+    background-color: rgb(194, 189, 189);
+    color: rgb(76, 23, 97);
+}
+.right-nav:hover .dropdown-categories-content-profile {
+    display: block;
+    behavior: smooth;
+}
+
+
+
+.search-box input{
+    position: absolute;
+    left: 50px;
+    top: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    font-size: small;
+    border-radius: 25px;
+    width: 100%;
+    height:  50%;
+    margin-left: 15px;
+    
+}
+
+.search-box {
+    background-color: rgb(230, 224, 224);
+    width: 20cm;
+    height: 65%;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 e;
+    margin-left: 15px;
+}
+
+.search-box img{
+    position: absolute;
+    left: 5px;
+    top: 0;
+    margin-top: 23px;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    
+}
+
+#logo {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.Register-button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    background-color: rgb(235, 81, 81);
+    color: white;
+    cursor: pointer;
+    padding: 8px 17px 8px 17px;
+    width: 135px;
+    position: absolute;
+    right: 1cm;
+    top: 20%;
+    border-radius: 10px;
+}
+.Log-in-button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    padding: 8px 17px 8px 17px;
+
+    position: absolute;
+    right: 5cm;
+    top: 20%;
+    border-radius: 10px;
+}
+
+
+
+.categories-button {
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: transparent;
+    border: none;
+    padding: 12px 20px 12px 20px;
+    cursor: pointer;
+    position: relative;
+    left: 10px;
+}
+
+.mssgName, .mssgAP, .mssgAM, .mssgImg, .mssgDate, .mssgPass, .mssgEmail{
+    color: rgb(208, 71, 71);
+    visibility: hidden;
+}
+
+main{
+    margin-top: 100px;
+}
+main .lvls{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #f9f9f9;
+    padding: 50px;
+    text-align: center;
+    width: 75%;
+}
+
+main input{
+    width: 60%;
+    margin: 10px;
+    height: 35px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.desc{
+    margin-top: 20px;
+    height: 200px;
+    
+}
+
+.descTxt{
+    height: 100%;
+    width: 60%;
+    margin: 10px;
+    height: 35px;
+    border-radius: 5px;
+    padding: 5px;
+    max-height: 100%;
+    min-height: 100%;
+}
+
+main .lvl{
+    box-shadow: rgba(0, 0, 0, 0.164) 0px -5px 0px -0px;
+    margin: 30px;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+main .lvl .info{
+    display: flex;
+    align-items: center;
+    
+}
+
+main .lvl label{
+    width: 40%;
+
+}
+
+main .lvl textarea{
+    width: 40%;
+    margin: 5px;
+}
+
+main .lvl textarea{
+    width: 80%;
+    height: 200px;
+}
+
+.agg{
+    padding: 5px;
+    margin: 10px;
+    background-color: rgb(95, 95, 95);
+    border-color: rgb(95, 95, 95);
+    height: 50px;
+    width: 200px;
+    color: white;
+}
+
+.agg:hover{
+    background-color: rgb(54, 54, 54);
+    transition: 0.2s;
+}
+
+.aceptar{
+    padding: 5px;
+    margin: 10px;
+    background-color: rgb(235, 81, 81);
+    border-color: rgb(235, 81, 81);
+    height: 50px;
+    width: 100%;
+    color: white;
+    margin-top: 50px;
+}
+
+.aceptar:hover{
+    background-color: rgb(196, 68, 68);
+    transition: 0.2s;
+}
+
+#categorias{
+    width: 60%;
+    border-radius: 5px;
+    border-color: black;
+    height: 35px;
+}
+
+.descripcion{
+    width: 80%;
+}
+
+#categoria{
+    background-color: #f9f9f9;
+    width: 75%;
+    margin-top: 100px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 30px;
+}
+
+#categoria input{
+    padding: 3px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 300px;
+}
+#categoria button{
+    width: 150px;
+    margin: 10px;
+    height: 35px;
+    background-color: rgb(95, 95, 95);
+    border-color: rgb(95, 95, 95);
+    color: white;
+}
+
+#categoria h2{
+    text-align: center;
+}
+
+.desc #categorias{
+    width: 100%;
+}
+.pickers{
+    margin-left: 20px;
+}
+.date{
+    border-radius: 100px;
+    padding: 5px;
+}
+.pickers img{
+    width: 30px;
+    cursor: pointer;
+}

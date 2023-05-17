@@ -1,0 +1,327 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.3);
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+footer {
+    background-color: rgb(53, 50, 50);
+    color: white;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+    padding: 10px 0 20px;
+    font-size: 13px;
+}
+
+header, .center-nav{
+    height: 75px;
+    background-color: rgb(230, 224, 224);
+    border: 1px;
+    border-color: black;
+    position: relative;
+    align-items: center;
+    display: flex;
+}
+
+.dropdown-categories{
+    position: relative;
+    display: inline-block;
+    
+}
+
+.dropdown-categories-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    padding: 12px 16px;
+    z-index: 1;
+    align-items: center;
+    border: 2px solid (0,0,0,10);
+}
+.dropdown-categories-content button{
+    padding: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+.dropdown-categories-content button:hover{
+    color: rgb(184, 23, 184);
+}
+.dropdown-categories-content li{
+    list-style-type: none;
+}
+
+.dropdown-categories:hover .dropdown-categories-content {
+    display: block;
+    behavior: smooth;
+}
+
+.right-nav {
+    align-items: center;
+}
+main {
+    width: 70%;
+    height: 100%;
+    margin-left: 15%;
+    position: relative;
+}
+
+main img{
+    width: 50%;
+    height: 300px;
+    position: relative;
+}
+
+main img{
+    width: 100%;
+    height: 50%;
+    image-resolution: 1920px    ;
+}
+
+.promo{
+    background-color: white;
+    padding: 30px 30px 30px 30px;
+    color: black;
+    position: absolute;
+    top: 60px;
+    left: 75px;
+    z-index: 1;
+}
+.search-box input{
+    position: absolute;
+    left: 50px;
+    top: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    font-size: small;
+    border-radius: 25px;
+    width: 70%;
+    height:  50%;
+    margin-left: 15px;
+    
+}
+
+.search-box {
+    background-color: rgb(230, 224, 224);
+    width: 20cm;
+    height: 65%;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 e;
+    margin-left: 15px;
+}
+
+.search-box img{
+    position: absolute;
+    left: 5px;
+    top: 0;
+    margin-top: 23px;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    
+}
+
+#logo {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.Register-button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    background-color: rgb(235, 81, 81);
+    color: white;
+    cursor: pointer;
+    padding: 8px 17px 8px 17px;
+    width: 135px;
+    position: absolute;
+    right: 1cm;
+    top: 20%;
+}
+.Log-in-button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    padding: 8px 17px 8px 17px;
+
+    position: absolute;
+    right: 5cm;
+    top: 20%;
+}
+
+.right-nav button:hover{
+    background-color: rgb(194, 189, 189);
+    color: rgb(76, 23, 97);
+}
+
+.categories-button {
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: transparent;
+    border: none;
+    padding: 12px 20px 12px 20px;
+    cursor: pointer;
+    position: relative;
+    left: 10px;
+}
+.perfil-image{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    
+}
+
+.perfil-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: center;
+}
+
+.dropdown-categories-content-profile{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    padding: 12px 16px;
+    z-index: 1;
+    align-items: center;
+    border: 2px solid (0,0,0,10);
+    right:0
+    
+}
+
+.dropdown-categories-content-profile button{
+    padding: 5px;
+    border: none;
+    background-color: transparent;
+
+}
+
+.dropdown-categories-content-profile button:hover{
+    color: rgb(184, 23, 184);
+}
+.dropdown-categories-content-profile li{
+    list-style-type: none;
+}
+
+.right-nav:hover .dropdown-categories-content-profile {
+    display: block;
+    behavior: smooth;
+}
+.pickers{
+    margin-left: 20px;
+}
+.date{
+    border-radius: 100px;
+    padding: 5px;
+}
+.pickers img{
+    width: 30px;
+    cursor: pointer;
+}
+.center-nav img{
+    cursor: pointer;
+}
+
+
+
+
+.Cursos{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    white-space: nowrap;
+}
+.CursosHeader{
+    margin: 50px 0px;
+    padding: 10px 20px;
+    font-family: 'Tilt Warp', cursive;
+    font-size: 30px;
+}
+.CursosContenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.CursosCaja{
+    width: 80%;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.1);
+    background-color: white;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+    word-break: break-all;
+}
+
+.NombresCurso{
+    display: flex;
+    flex-direction: column;
+}
+
+.resenia{
+    color: #f9d71c;
+    
+}
+
+.cajaTop{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info{
+    width: 100%;
+}
+
+.comentarios h1{
+    font-family: 'Tilt Warp', cursive;
+}
+
+.curso h1{
+    font-family: 'Tilt Warp', cursive;
+}
+
+.cajaTop .perfil-image{
+    margin-right: 10px;
+}
+
+.cursos h1{
+    font-family: 'Tilt Warp', cursive;
+    text-align: center;
+}
+
+.disable{
+    padding: 5px;
+    border: none;
+    background-color: #adadad;
+    width: 100px;
+    
+}   
