@@ -99,7 +99,7 @@
         .done(function(res){
             $('#respuesta').html(res);
             console.log(res);
-            //location.href = 'http://localhost/BDMM/Perfil.php';
+            //location.href = 'http://localhost/dashboard/BDMM/Perfil.php';
         })
         .fail(function(){
             console.log('error');
@@ -126,7 +126,7 @@
             })
             .done(function(res){
                     $('#mensajes').html(res);
-                    //location.href = 'http://localhost/BDMM/Perfil.php';
+                    //location.href = 'http://localhost/dashboard/BDMM/Perfil.php';
                 })
                 .fail(function(){
                     console.log('error');
@@ -160,7 +160,7 @@
                 .done(function(res){
                     //$('#respuesta').html(res);
                     console.log('Mensaje enviado');
-                    //location.href = 'http://localhost/BDMM/Perfil.php';
+                    //location.href = 'http://localhost/dashboard/BDMM/Perfil.php';
                     document.getElementById("msg").value = '';
                 })
                 .fail(function(){

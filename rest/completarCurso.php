@@ -25,13 +25,18 @@ if(isset($_POST["Nivel"])){
     $query = "SELECT Estudiante, NvlsProgreso, ID_curso, NvlsCurso FROM Nvls_acabados WHERE Estudiante = '$user' AND ID_curso = $curso";
     $resultado = $conn->query($query);
     while($data = $resultado->fetch(PDO::FETCH_ASSOC)){
+        $query2 = "SELECT MAX(ID_contenido) as MxLvl FROM contenido_cursos WHERE ID_curso = $curso";
+        $resultado2 = $conn->query($query2);
         
-        if($data['NvlsProgreso'] == $data['NvlsCurso']){
-            echo 'Acabado';
+        while($data2 = $resultado2->fetch(PDO::FETCH_ASSOC)){
+            if($data['NvlsProgreso'] == $data2['MxLvl']){
+                echo 'Acabado';
+            }
+            else{
+                echo 'No acabado';
+            }
         }
-        else{
-            echo 'No acabado';
-        }
+        
     }
 
 }

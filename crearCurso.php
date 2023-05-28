@@ -178,7 +178,7 @@
             })
             .done(function(res){
                 alert('Registro exitoso');
-                //location.href = 'http://localhost/BDMM/crearCurso.php';
+                location.href = 'http://localhost/dashboard/BDMM/crearCurso.php';
             })
             .fail(function(e){
                 alert('Ya hay una categoría con este nombre')
@@ -368,7 +368,7 @@
             })
             .done(function(res){
                 alert('su sesión ha sido cerrada exitosamente');
-                location.href = 'http://localhost/BDMM/index.php';
+                location.href = 'http://localhost/dashboard/BDMM/index.php';
             })
             .fail(function(e){
                 console.log(e);
@@ -401,7 +401,7 @@ document.addEventListener('click', (e) =>
             type: 'post'
         })
         .done(function(res){
-            location.href = 'http://localhost/BDMM/busqueda.php';
+            location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
         })
         .fail(function(e){
             console.log(e);
@@ -445,7 +445,7 @@ if(date1.value < date2.value){
         type: 'post'
     })
     .done(function(res){
-        location.href = 'http://localhost/BDMM/busqueda.php';
+        location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
     })
     .fail(function(e){
         console.log(e);
@@ -479,7 +479,7 @@ function search(){
                 type: 'post'
             })
             .done(function(res){
-                location.href = 'http://localhost/BDMM/busqueda.php';
+                location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
             })
             .fail(function(e){
                 console.log(e);

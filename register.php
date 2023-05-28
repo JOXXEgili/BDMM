@@ -148,7 +148,7 @@
                 .done(function(res){
                     $('#respuesta').html(res);
                     console.log(res);
-                    //location.href = 'http://localhost/BDMM/Perfil.php';
+                    //location.href = 'http://localhost/dashboard/BDMM/Perfil.php';
                 })
                 .fail(function(){
                     console.log('error');
@@ -188,7 +188,7 @@
                     //console.log(res);
                     alert('Usuario registrado exitosamente')
                     //alert(res);
-                    location.href = 'http://localhost/BDMM/log-in.php';
+                    location.href = 'http://localhost/dashboard/BDMM/log-in.php';
                         
                 })
                 .fail(function(){
@@ -301,7 +301,7 @@ document.addEventListener('click', (e) =>
             type: 'post'
         })
         .done(function(res){
-            location.href = 'http://localhost/BDMM/busqueda.php';
+            location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
         })
         .fail(function(e){
             console.log(e);
@@ -345,7 +345,7 @@ if(date1.value < date2.value){
         type: 'post'
     })
     .done(function(res){
-        location.href = 'http://localhost/BDMM/busqueda.php';
+        location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
     })
     .fail(function(e){
         console.log(e);
@@ -379,7 +379,7 @@ function search(){
                 type: 'post'
             })
             .done(function(res){
-                location.href = 'http://localhost/BDMM/busqueda.php';
+                location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
             })
             .fail(function(e){
                 console.log(e);

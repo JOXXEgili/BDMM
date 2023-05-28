@@ -135,7 +135,7 @@ header, .center-nav{
     margin-top: 20px;
     font-size: small;
     border-radius: 25px;
-    width: 100%;
+    width: 50%;
     height:  50%;
     margin-left: 15px;
     
@@ -143,7 +143,7 @@ header, .center-nav{
 
 .search-box {
     background-color: rgb(230, 224, 224);
-    width: 20cm;
+    width: 10cm;
     height: 65%;
     border-style: solid;
     border-width: 1px;

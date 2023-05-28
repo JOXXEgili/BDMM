@@ -223,20 +223,19 @@
                                     if($cont == $cont2){
                                         $cursado = "<h6  id = '" . $cont ."'>Ya cursaste este nivel</h6>";
                                     }
-    
-                                    if($lvl == $cont){
                                     
-                                        echo "<div class='lvl current' id = '" . $cont ."' onclick='changeLvl()'>
-                                            <h5 id = '" . $cont ."'>Nivel " . $cont .": " . $descrip ."</h5>" . $cursado . "
-                                        </div>";
-                                    }
-                                    else{
-                                        
-                                        echo "<div class='lvl' id = '" . $cont ."' onclick='changeLvl()'>
-                                            <h5 id = '" . $cont ."'>Nivel " . $cont .": " . $descrip ."</h5>" . $cursado . "
-                                        </div>";
-                                    }
+                                }
+                                if($lvl == $cont){
                                     
+                                    echo "<div class='lvl current' id = '" . $cont ."' onclick='changeLvl()'>
+                                        <h5 id = '" . $cont ."'>Nivel " . $cont .": " . $descrip ."</h5>" . $cursado . "
+                                    </div>";
+                                }
+                                else{
+                                    
+                                    echo "<div class='lvl' id = '" . $cont ."' onclick='changeLvl()'>
+                                        <h5 id = '" . $cont ."'>Nivel " . $cont .": " . $descrip ."</h5>" . $cursado . "
+                                    </div>";
                                 }
                                 
                             }
@@ -395,7 +394,7 @@
                     type: 'post'
                 })
                 .done(function(res){
-                    location.href = 'http://localhost/BDMM/busqueda.php';
+                    location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
                 })
                 .fail(function(e){
                     console.log(e);
@@ -423,7 +422,7 @@
             })
             .done(function(res){
                 alert('su sesión ha sido cerrada exitosamente');
-                location.href = 'http://localhost/BDMM/index.php';
+                location.href = 'http://localhost/dashboard/BDMM/index.php';
             })
             .fail(function(e){
                 console.log(e);
@@ -458,7 +457,7 @@
                             type: 'post'
                         })
                         .done(function(res){
-                            location.href = 'http://localhost/BDMM/Nivel.php';
+                            location.href = 'http://localhost/dashboard/BDMM/Nivel.php';
                         })
                         .fail(function(e){
                             console.log(e);
@@ -490,11 +489,11 @@
             .done(function(res){
                 if(res === 'Acabado'){
                     alert('Haz completado el curso con éxtio');
-                    location.href = 'http://localhost/BDMM/diploma.php';
+                    location.href = 'http://localhost/dashboard/BDMM/diploma.php';
                 }
                 else{
                     alert('Haz completado este nivel :)');
-                    location.href = 'http://localhost/BDMM/Nivel.php';
+                    location.href = 'http://localhost/dashboard/BDMM/Nivel.php';
                 }
                 
                 //
@@ -535,7 +534,7 @@ document.addEventListener('click', (e) =>
             type: 'post'
         })
         .done(function(res){
-            location.href = 'http://localhost/BDMM/busqueda.php';
+            location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
         })
         .fail(function(e){
             console.log(e);
@@ -579,7 +578,7 @@ if(date1.value < date2.value){
         type: 'post'
     })
     .done(function(res){
-        location.href = 'http://localhost/BDMM/busqueda.php';
+        location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
     })
     .fail(function(e){
         console.log(e);

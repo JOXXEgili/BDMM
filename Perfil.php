@@ -81,7 +81,7 @@
                         <li><button onclick="location.href='Perfil.php'">Perfil</button></li>
                         <?php
                             if($_SESSION['type'] == 'Profesor'){
-                                echo '<li><button onclick="location.href=' . "'crearCurso.php'" . '">Crear Curso</button></li><li><button onclick="location.href=' . "'cursosCreados.php'" . '">Cursos Creados</button></li>';
+                                echo '<li><button onclick="location.href=' . "'crearCurso.php'" . '">Crear Curso</button></li><li><button onclick="location.href=' . "'cursosCreados.php'" . '">Cursos Creados</button></li><li><button onclick="location.href=' . "'ventas.php'" . '">Kardex</button></li>';
                             }
                             else{
                                 echo '<li><button onclick="location.href=' . "'Kardex.php'" . '">Mis cursos</button></li>';
@@ -200,7 +200,7 @@
                     type: 'post'
                 })
                 .done(function(res){
-                    location.href = 'http://localhost/BDMM/busqueda.php';
+                    location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
                 })
                 .fail(function(e){
                     console.log(e);
@@ -228,7 +228,7 @@
             })
             .done(function(res){
                 alert('su sesión ha sido cerrada exitosamente');
-                location.href = 'http://localhost/BDMM/index.php';
+                location.href = 'http://localhost/dashboard/BDMM/index.php';
             })
             .fail(function(e){
                 console.log(e);
@@ -261,7 +261,7 @@ document.addEventListener('click', (e) =>
             type: 'post'
         })
         .done(function(res){
-            location.href = 'http://localhost/BDMM/busqueda.php';
+            location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
         })
         .fail(function(e){
             console.log(e);
@@ -305,7 +305,7 @@ if(date1.value < date2.value){
         type: 'post'
     })
     .done(function(res){
-        location.href = 'http://localhost/BDMM/busqueda.php';
+        location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
     })
     .fail(function(e){
         console.log(e);
@@ -377,7 +377,7 @@ if(date1.value > date2.value){
                     })
                     .done(function(res){
                         alert('Información actualizada')
-                        location.href = 'http://localhost/BDMM/Perfil.php';
+                        location.href = 'http://localhost/dashboard/BDMM/Perfil.php';
                     })
                     .fail(function(e){
                         console.log(e);

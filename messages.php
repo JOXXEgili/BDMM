@@ -360,7 +360,7 @@ session_start();
       $('#respuesta').html(res);
       //console.log(res);
       console.log('hola');
-      //location.href = 'http://localhost/BDMM/Perfil.php';
+      //location.href = 'http://localhost/dashboard/BDMM/Perfil.php';
   })
   .fail(function(e){
       console.log(e);
@@ -387,7 +387,7 @@ session_start();
       })
       .done(function(res){
               $('#mensajes').html(res);
-              //location.href = 'http://localhost/BDMM/Perfil.php';
+              //location.href = 'http://localhost/dashboard/BDMM/Perfil.php';
           })
           .fail(function(){
               console.log('error');
@@ -421,7 +421,7 @@ session_start();
           .done(function(res){
               //$('#respuesta').html(res);
               console.log('Mensaje enviado');
-              //location.href = 'http://localhost/BDMM/Perfil.php';
+              //location.href = 'http://localhost/dashboard/BDMM/Perfil.php';
               document.getElementById("msg").value = '';
           })
           .fail(function(){
@@ -471,7 +471,7 @@ session_start();
             })
             .done(function(res){
                 alert('su sesión ha sido cerrada exitosamente');
-                location.href = 'http://localhost/BDMM/index.php';
+                location.href = 'http://localhost/dashboard/BDMM/index.php';
             })
             .fail(function(e){
                 console.log(e);
@@ -504,7 +504,7 @@ document.addEventListener('click', (e) =>
             type: 'post'
         })
         .done(function(res){
-            location.href = 'http://localhost/BDMM/busqueda.php';
+            location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
         })
         .fail(function(e){
             console.log(e);
@@ -548,7 +548,7 @@ if(date1.value < date2.value){
         type: 'post'
     })
     .done(function(res){
-        location.href = 'http://localhost/BDMM/busqueda.php';
+        location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
     })
     .fail(function(e){
         console.log(e);
@@ -585,7 +585,7 @@ function users(){
   })
   .done(function(res){
     if(res === 'encontrado'){
-      location.href = 'http://localhost/BDMM/messages.php';
+      location.href = 'http://localhost/dashboard/BDMM/messages.php';
     }
     else{
       alert('Usuario no encontrado');
@@ -621,7 +621,7 @@ function search(){
                 type: 'post'
             })
             .done(function(res){
-                location.href = 'http://localhost/BDMM/busqueda.php';
+                location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
             })
             .fail(function(e){
                 console.log(e);

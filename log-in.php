@@ -44,7 +44,7 @@
                     }
                     else if(res == 'bien'){
                         sessionStorage.setItem("email", res);
-                        location.href = 'http://localhost/BDMM/Perfil.php';
+                        location.href = 'http://localhost/dashboard/BDMM/Perfil.php';
                     //sessionStorage.setItem("email", res);
                     alert('Sesión iniciada correctamente');
                     }
@@ -192,7 +192,7 @@ document.addEventListener('click', (e) =>
             type: 'post'
         })
         .done(function(res){
-            location.href = 'http://localhost/BDMM/busqueda.php';
+            location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
         })
         .fail(function(e){
             console.log(e);
@@ -236,7 +236,7 @@ if(date1.value < date2.value){
         type: 'post'
     })
     .done(function(res){
-        location.href = 'http://localhost/BDMM/busqueda.php';
+        location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
     })
     .fail(function(e){
         console.log(e);
@@ -270,7 +270,7 @@ function search(){
                 type: 'post'
             })
             .done(function(res){
-                location.href = 'http://localhost/BDMM/busqueda.php';
+                location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
             })
             .fail(function(e){
                 console.log(e);

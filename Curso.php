@@ -391,6 +391,7 @@
                                         <p style="color: gray">' . $data['Fecha'] . '</p>
                                     </div>
                                 </div>';
+                                break;
                             }
                             
                         }
@@ -491,7 +492,7 @@
                         })
                         .done(function(res){
                             alert('Compra exitosa');
-                            location.href = 'http://localhost/BDMM/Curso.php';
+                            location.href = 'http://localhost/dashboard/BDMM/Curso.php';
                         })
                         .fail(function(e){
                             console.log(e);
@@ -522,7 +523,7 @@
                     //form_data.append("lvl", elementId); 
                     sessionStorage.setItem('lvl', elementId);
                      console.log(elementId)
-                    location.href = 'http://localhost/BDMM/pagoTarjeta.php'
+                    location.href = 'http://localhost/dashboard/BDMM/pagoTarjeta.php'
                     /*
                     $.ajax({
                         url: "rest/ComprarCurso.php",
@@ -570,7 +571,7 @@
                 type: 'post'
             })
             .done(function(res){
-                location.href = 'http://localhost/BDMM/busqueda.php';
+                location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
             })
             .fail(function(e){
                 console.log(e);
@@ -598,7 +599,7 @@
             })
             .done(function(res){
                 alert('su sesión ha sido cerrada exitosamente');
-                location.href = 'http://localhost/BDMM/index.php';
+                location.href = 'http://localhost/dashboard/BDMM/index.php';
             })
             .fail(function(e){
                 console.log(e);
@@ -626,7 +627,7 @@
             })
             .done(function(res){
                 alert('Compra exitosa');
-                //location.href = 'http://localhost/BDMM/index.php';
+                //location.href = 'http://localhost/dashboard/BDMM/index.php';
             })
             .fail(function(e){
                 console.log(e);
@@ -634,7 +635,7 @@
             .always(function(){
                 console.log('complete');
             }) */
-            location.href = 'http://localhost/BDMM/pagoTarjeta.php'
+            location.href = 'http://localhost/dashboard/BDMM/pagoTarjeta.php'
     }
 
     function cursarNivel(){
@@ -662,7 +663,7 @@
                         type: 'post'
                     })
                     .done(function(res){
-                        location.href = 'http://localhost/BDMM/Nivel.php';
+                        location.href = 'http://localhost/dashboard/BDMM/Nivel.php';
                     })
                     .fail(function(e){
                         console.log(e);
@@ -692,7 +693,7 @@
                 type: 'post'
             })
             .done(function(res){
-                location.href = 'http://localhost/BDMM/Nivel.php';
+                location.href = 'http://localhost/dashboard/BDMM/Nivel.php';
             })
             .fail(function(e){
                 console.log(e);
@@ -725,7 +726,7 @@
                     type: 'post'
                 })
                 .done(function(res){
-                    location.href = 'http://localhost/BDMM/busqueda.php';
+                    location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
                 })
                 .fail(function(e){
                     console.log(e);
@@ -769,7 +770,7 @@
                 type: 'post'
             })
             .done(function(res){
-                location.href = 'http://localhost/BDMM/busqueda.php';
+                location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
             })
             .fail(function(e){
                 console.log(e);

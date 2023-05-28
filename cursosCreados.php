@@ -263,7 +263,7 @@
                 type: 'post'
             })
             .done(function(res){
-                    location.href = 'http://localhost/BDMM/busqueda.php';
+                    location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
             })
             .fail(function(e){
                 console.log(e);
@@ -291,7 +291,7 @@
         })
         .done(function(res){
             alert('su sesión ha sido cerrada exitosamente');
-            location.href = 'http://localhost/BDMM/index.php';
+            location.href = 'http://localhost/dashboard/BDMM/index.php';
         })
         .fail(function(e){
             console.log(e);
@@ -327,7 +327,7 @@
                         type: 'post'
                     })
                     .done(function(res){
-                        location.href = 'http://localhost/BDMM/Curso.php';
+                        location.href = 'http://localhost/dashboard/BDMM/Curso.php';
                     })
                     .fail(function(e){
                         console.log(e);
@@ -363,7 +363,7 @@ document.addEventListener('click', (e) =>
             type: 'post'
         })
         .done(function(res){
-            location.href = 'http://localhost/BDMM/busqueda.php';
+            location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
         })
         .fail(function(e){
             console.log(e);
@@ -407,7 +407,7 @@ if(date1.value < date2.value){
         type: 'post'
     })
     .done(function(res){
-        location.href = 'http://localhost/BDMM/busqueda.php';
+        location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
     })
     .fail(function(e){
         console.log(e);
@@ -446,7 +446,7 @@ function habilitar(){
             })
             .done(function(res){
                 alert('Curso deshabilitado');
-                location.href = 'http://localhost/BDMM/cursosCreados.php';
+                location.href = 'http://localhost/dashboard/BDMM/cursosCreados.php';
             })
             .fail(function(e){
                 console.log(e);

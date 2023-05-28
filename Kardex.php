@@ -189,7 +189,7 @@
                                 $prof = $data3['Autor'];
                                 $estado = $data3['Estado'];
 
-                                if($data['Estado'] == 1){
+                                if($data3['Estado'] == 1){
                                     $estado = 'Sí';
                                 }
                                 else{
@@ -257,10 +257,17 @@
                                                 $fin = 'Aún en curso';
                                                 $percent = 0;
                                                 while($data9 = $resultado9->fetch(PDO::FETCH_ASSOC)){
-                                                    if($data9['NvlsProgreso'] == $data9['NvlsCurso']){
-                                                        $fin = $ultimaInteraccion;
-                                                        $percent = ($data9['NvlsProgreso'] * 100)/$data9['NvlsCurso'];
+
+                                                    $query10 = "SELECT MAX(ID_contenido) as MxLvl FROM contenido_cursos WHERE ID_curso = $curso";
+                                                    $resultado10 = $conn->query($query10);
+                                                    
+                                                    while($data10 = $resultado10->fetch(PDO::FETCH_ASSOC)){
+                                                        
+                                                            $fin = $ultimaInteraccion;
+                                                            $percent = ($data9['NvlsProgreso'] * 100)/$data10['MxLvl'];
+                                                        
                                                     }
+                                                    
                                                 }
                                                 echo '<div class="CursosCaja" onclick="location.href=' . "'index.html'" .'">
                                                         <div class="cajaTop">
@@ -751,7 +758,7 @@
                     type: 'post'
                 })
                 .done(function(res){
-                    location.href = 'http://localhost/BDMM/busqueda.php';
+                    location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
                 })
                 .fail(function(e){
                     console.log(e);
@@ -779,7 +786,7 @@
             })
             .done(function(res){
                 alert('su sesión ha sido cerrada exitosamente');
-                location.href = 'http://localhost/BDMM/index.php';
+                location.href = 'http://localhost/dashboard/BDMM/index.php';
             })
             .fail(function(e){
                 console.log(e);
@@ -812,7 +819,7 @@ document.addEventListener('click', (e) =>
             type: 'post'
         })
         .done(function(res){
-            location.href = 'http://localhost/BDMM/busqueda.php';
+            location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
         })
         .fail(function(e){
             console.log(e);
@@ -856,7 +863,7 @@ if(date1.value < date2.value){
         type: 'post'
     })
     .done(function(res){
-        location.href = 'http://localhost/BDMM/busqueda.php';
+        location.href = 'http://localhost/dashboard/BDMM/busqueda.php';
     })
     .fail(function(e){
         console.log(e);
